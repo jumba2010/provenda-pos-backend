@@ -1,0 +1,17 @@
+logging:
+  file:
+    path: /tmp/log
+    name: provenda-log.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}  - %msg%n"
+  level:
+    '[provenda.pos.backend]': DEBUG
+spring:
+  activemq:
+    broker-url: http://localgost:61616
+  datasource:
+    url: http://localhost/pos
+    username: root
+    password: mozit
+    driver-class-name: com.mysql.cj.jdbc.Driver
