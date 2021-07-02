@@ -11,6 +11,9 @@ This projects requires the following tecnologies:
  * Java 11 or later
  * Spring 5
 
+This project uses lombok for getters andsetters and constructors generation. 
+So you neet to add it in your IDE to avoid compilation errors in your IDE
+
 MAINTAINERS
 -----------
 Current maintainers:
