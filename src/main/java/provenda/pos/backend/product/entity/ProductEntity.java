@@ -1,5 +1,7 @@
 package provenda.pos.backend.product.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,10 +28,10 @@ import provenda.pos.backend.user.entity.SucursalEntity;
 @Table(name="product")
 public class ProductEntity extends LifeCycleEntity<Long> {
 
-	@Column(name="name")
+	@Column(name="name", nullable = false)
 	private String name;
 	
-	@Column(name="code")
+	@Column(name="code", nullable = false)
 	private String code;
 	
 	@Column(name="description", nullable = false)
@@ -41,16 +43,16 @@ public class ProductEntity extends LifeCycleEntity<Long> {
 	@Column(name="alert_quantity")
 	private int alertQuantity;
 	
-	@Column(name="available_quantity")
+	@Column(name="available_quantity", nullable = false)
 	private int availableQuantity;
 	
-	@Column(name="package_count")
+	@Column(name="package_count", nullable = false)
 	private int packageCount;
 	
 	@Column(name="current_price", nullable = false)
-	private double currentPrice;
+	private BigDecimal currentPrice;
 	
-	@Column(name="promotional_price", nullable = false)
+	@Column(name="promotional_price")
 	private double pomotionalPrice;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -81,7 +83,7 @@ public class ProductEntity extends LifeCycleEntity<Long> {
 	@Column(name="category_id")
 	private Long categoryId;
 	
-	@Column(name="dafault_tax")
+	@Column(name="dafault_tax", nullable = false)
 	private double defaultTax;
 	
 }

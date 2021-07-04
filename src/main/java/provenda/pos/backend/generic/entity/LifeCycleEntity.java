@@ -45,6 +45,9 @@ public abstract class LifeCycleEntity<T>  implements ILifeCycleEntity<T> {
 	
 	@Column(name="activated_at",nullable=false)
 	private LocalDateTime activatedAt;
+	
+	@Column(name="sucursal_id")
+	private Long sucursalId;
 
 	@PrePersist
 	void createdAt() {

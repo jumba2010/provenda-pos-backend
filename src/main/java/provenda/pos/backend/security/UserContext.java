@@ -19,4 +19,6 @@ private Long id;
 
 private String device;
 
+private Long sucursalId;
+
 }

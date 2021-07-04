@@ -25,8 +25,14 @@ import provenda.pos.backend.product.entity.ProductEntity;
 @Table(name="sale_item")
 public class SaleItemEntity extends LifeCycleEntity<Long> {
 
-	@Column(name="sale_id")
+	@Column(name="sale_id",nullable = false)
 	private Long saleId;
+	
+	@Column(name="quantity",nullable = false)
+	private int quantity;
+	
+	@Column(name="price",nullable = false)
+	private double price;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="sale_id",insertable = false,updatable=false,nullable = false)

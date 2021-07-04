@@ -1,12 +1,11 @@
 package provenda.pos.backend.generic.dao;
 
 import java.io.Serializable;
-import java.util.Collection;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-import provenda.pos.backend.generic.entity.LifeCycleEntity;
+import reactor.core.publisher.Flux;
 
 /**
  * @author Judiao Mbaua
@@ -16,9 +15,9 @@ import provenda.pos.backend.generic.entity.LifeCycleEntity;
  *
  */
 @NoRepositoryBean
-public interface AbstractBaseRepository<T extends LifeCycleEntity<T>, ID extends Serializable>
-		extends JpaRepository<T, ID> {
+public interface AbstractBaseRepository<T,  ID extends Serializable>
+		extends ReactiveCrudRepository<T, ID> {
 
-	Collection<T> findByActiveAndState(boolean active, int state);
+	Flux<T> findByActiveAndState(boolean active, int state);
 
 }

@@ -12,6 +12,7 @@ import provenda.pos.backend.generic.dao.AbstractBaseRepository;
 import provenda.pos.backend.generic.entity.LifeCyCleState;
 import provenda.pos.backend.generic.entity.LifeCycleEntity;
 import provenda.pos.backend.security.UserContext;
+import reactor.core.publisher.Mono;
 
 /**
  * @author Judiao Mbaua
@@ -29,16 +30,17 @@ public class AbstractServiceImpl<T extends LifeCycleEntity<T>, ID extends Serial
 	private AbstractBaseRepository<T, ID> repository;
 
 	@Override
-	public T create(UserContext userContext, T entity) {
+	public Mono<T> create(UserContext userContext, T entity) {
 		entity.setCreatedBy(userContext.getId());
 		entity.setActivatedBy(userContext.getId());
 		entity.setActive(LifeCyCleState.ACTIVE.isActive());
 		entity.setState(LifeCyCleState.ACTIVE.getState());
+		entity.setSucursalId(userContext.getSucursalId());
 		return repository.save(entity);
 	}
 
 	@Override
-	public T update(UserContext userContext, T entity) {
+	public  Mono<T>  update(UserContext userContext, T entity) {
 		entity.setUpdatedBy(userContext.getId());
 		entity.setUpdatedAt(LocalDateTime.now());
 		return repository.save(entity);
