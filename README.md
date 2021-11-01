@@ -11,8 +11,15 @@ This projects requires the following technologies:
  * Java 11 or later
  * Spring 5
 
-This project uses lombok for getters and setters and constructors generation. 
-So you need to add it in your IDE to avoid compilation errors in your IDE
+TECHNOLOGIES
+------------
+This projects uses the following technologies:
+
+ * Java 11
+ * Spring 5 (Webflux)
+ * Hibernate and JPA
+ * Lombok
+ 
 
 MAINTAINERS
 -----------
